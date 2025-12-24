@@ -1,0 +1,167 @@
+/* ========================== FOOTER REDESIGN ========================== */
+.footer {
+  background: linear-gradient(135deg, #c7d2fe 0%, #fbcfe8 100%);
+  padding: 80px 20px 40px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(15px);
+  padding: 40px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+/* Footer Cards */
+.footer-card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+/* About Card */
+.footer-logo-container {
+  margin-bottom: 20px;
+}
+
+.footer-logo-container img {
+  max-height: 60px;
+  border-radius: 8px;
+}
+
+.footer-about p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  background: #e10980;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  text-decoration: none;
+}
+
+.footer-social a:hover {
+  transform: translateY(-3px);
+  background: #c1076d;
+}
+
+/* Quick Links Card */
+.footer-links h4 {
+  color: #e10980;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #555;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #e10980;
+}
+
+/* Contact Card */
+.footer-contact h4 {
+  color: #e10980;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.footer-contact p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.footer-contact a {
+  color: #0ea5e9;
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(225, 9, 128, 0.2);
+  font-size: 13px;
+  color: #555;
+}
+
+.footer-bottom .dev-name {
+  color: #e10980;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 15px 30px;
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+    padding: 25px;
+    border-radius: 30px;
+    gap: 20px;
+  }
+  .footer-card {
+    padding: 20px;
+  }
+}

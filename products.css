@@ -1,0 +1,155 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Poppins",sans-serif;color:#2b2b2b;line-height:1.6;background:#fff}
+
+.btn{display:inline-block;padding:12px 28px;border-radius:30px;font-weight:500;font-size:15px;transition:.3s ease;cursor:pointer;text-decoration:none}
+.btn.primary{background:linear-gradient(90deg,#e10980,#499cc8);color:#fff;box-shadow:0 8px 20px rgba(225,9,128,.25)}
+.btn.primary:hover{transform:translateY(-2px)}
+.btn.secondary{color:#e10980;border:2px solid #e10980;background:rgba(255,255,255,.5);backdrop-filter:blur(6px)}
+.btn.secondary:hover{background:#e10980;color:#fff}
+
+.glass{background:rgba(255,255,255,.55);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.45);border-radius:22px;box-shadow:0 18px 40px rgba(0,0,0,.08)}
+
+/* ==========================
+   PRODUCTS HERO (UPDATED – SAME AS ABOUT HERO)
+========================== */
+
+.products-hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* BACKGROUND IMAGE ONLY */
+  background: url("images/speed-blank-label-machine.jpg") center / cover no-repeat;
+
+  padding: 60px 24px;
+  margin-top: 120px;
+  overflow: hidden;
+}
+
+/* BLACK OVERLAY */
+.products-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* 🔥 opacity control */
+  z-index: 0;
+}
+
+/* CENTER WHITE CARD */
+.products-hero .hero-inner {
+  background: #ffffff;           /* PURE WHITE */
+  padding: 40px 40px;
+  border-radius: 30px;
+  text-align: center;
+
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+
+  position: relative;
+  z-index: 1;
+}
+
+/* TITLE */
+.products-hero h1 {
+  font-size: 42px;
+  line-height: 1.2;
+  background: linear-gradient(90deg, #e10980, #499cc8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SUBTITLE */
+.products-hero p {
+  margin-top: 16px;
+  color: #555;
+  font-size: 18px;
+}
+
+/* REMOVE OLD PINK / BUBBLE EFFECTS */
+.products-hero .bubbles,
+.products-hero .bubble {
+  display: none !important;
+}
+
+/* RESPONSIVE */
+@media (max-width: 640px) {
+  .products-hero h1 {
+    font-size: 32px;
+  }
+
+  .products-hero .hero-inner {
+    padding: 28px 26px;
+    border-radius: 22px;
+  }
+}
+
+
+.catalog .wrap{max-width:1200px;margin:0 auto;padding:80px 24px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+.pill{padding:10px 14px;border-radius:999px;border:1px solid rgba(225,9,128,.35);color:#2b2b2b}
+.pill.active{background:#e10980;color:#fff;border-color:#e10980}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{overflow:hidden}
+.card .img{position:relative;height:200px;overflow:hidden}
+.card .img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.card .img .tag{position:absolute;left:12px;bottom:12px;background:rgba(255,255,255,.8);padding:6px 10px;border-radius:999px;font-size:12px;color:#e10980}
+.card .body{padding:16px}
+.card h3{color:#e10980;margin-bottom:8px}
+.specs{list-style:none;display:flex;gap:10px;flex-wrap:wrap;margin:0 0 12px 0;color:#606060;font-size:14px}
+.actions{display:flex;gap:10px}
+.card:hover .img img{transform:scale(1.06)}
+
+@media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+
+.category .category-wrap{max-width:1200px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:260px 1fr;gap:24px}
+.sidebar{padding:16px}
+.sidebar h3{color:#e10980;margin-bottom:12px}
+.sidebar nav{display:flex;flex-direction:column;gap:10px}
+.sidebar nav a{padding:10px 12px;border:1px solid rgba(225,9,128,.35);border-radius:12px;color:#2b2b2b;text-decoration:none}
+.sidebar nav a:hover{background:#e10980;color:#fff;border-color:#e10980}
+.content{display:flex;flex-direction:column;gap:20px}
+.product-block{padding:18px}
+.product-block .layout{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+.product-block .media img{width:100%;height:260px;object-fit:cover;border-radius:14px}
+.product-block h2{color:#e10980;margin-bottom:8px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;color:#606060;font-size:14px}
+.details h4{margin-bottom:8px;color:#e10980}
+.details table{width:100%;border-collapse:collapse;margin-bottom:12px}
+.details table td{padding:8px 10px;border-bottom:1px solid rgba(0,0,0,.08)}
+.details table td:first-child{width:40%;color:#606060}
+
+@media(max-width:900px){.category .category-wrap{grid-template-columns:1fr}}
+@media(max-width:900px){.product-block .layout{grid-template-columns:1fr}}
+
+/* ==========================
+   RESPONSIVE – PRODUCTS
+========================== */
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category .category-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .product-block .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-hero h1 {
+    font-size: 32px;
+  }
+}
