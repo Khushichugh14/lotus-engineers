@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Lotus Engineers</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="footer.css" />
+ <link rel="stylesheet" href="href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"">
+  <script src="navbar.js" defer></script>
+</head>
+<body>
+
+  <section class="contact-hero">
+    <div class="hero-inner glass">
+      <h1>Contact Us</h1>
+      <p>We’re here to help with machinery, installations, and support.</p>
+    </div>
+    <div class="bubbles">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+    </div>
+  </section>
+
+  <section class="contact-main">
+    <div class="wrap">
+      <div class="grid">
+        <div class="left glass">
+          <form class="form" method="post" action="#">
+            <div class="row">
+              <input type="text" name="name" placeholder="Full Name" required />
+              <input type="email" name="email" placeholder="Email" required />
+            </div>
+            <div class="row">
+              <input type="tel" name="phone" placeholder="Phone" />
+              <input type="text" name="company" placeholder="Company" />
+            </div>
+            <div class="field">
+              <input type="text" name="subject" placeholder="Subject" />
+            </div>
+            <textarea name="message" rows="5" placeholder="Tell us about your requirement" required></textarea>
+            <button class="btn primary" type="submit">Send Message</button>
+          </form>
+        </div>
+        <div class="right">
+          <div class="info glass">
+            <h3>Address</h3>
+            <p>Lotus Engineers Survey No. 30/27, Milkat No. 5/558, Dambar Plant Road, Dhayri Pune - 411041, Maharashtra, India</p>
+          </div>
+          <div class="info glass">
+            <h3>Phone</h3>
+            <p>
+              <a href="tel:8688005711">8688005711</a><br />
+              <a href="tel:9823386085">9823386085</a>
+            </p>
+          </div>
+          <div class="info glass">
+            <h3>Email</h3>
+            <p><a href="mailto:info@lotusengineers.in">lotusengg18@gmail.com</a></p>
+          </div>
+        </div>
+      </div>
+      <h3 class="map-title">Location</h3>
+      <div class="map-wide glass">
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps?q=Survey+No.+30/27,+Milkat+No.+5/558,+Dambar+Plant+Road,+Dhayri,+Pune+-+411041,+Maharashtra,+India&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen>
+          </iframe>
+          <div class="map-actions" style="margin-top:10px;text-align:center">
+            <a href="https://maps.app.goo.gl/gaVcPmKkWJ5ZrZPB9" target="_blank" rel="noopener" class="btn primary">Open in Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const subject = urlParams.get('subject');
+      if (subject) {
+        const subjectField = document.querySelector('input[name="subject"]');
+        if (subjectField) {
+          subjectField.value = decodeURIComponent(subject);
+        }
+      }
+    });
+  </script>
+</body>
+</html>

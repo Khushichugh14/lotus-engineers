@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | Lotus Engineers</title>
+  <link rel="stylesheet" href="gallery.css" />
+  <link rel="stylesheet" href="navbar.css" />
+  <link rel="stylesheet" href="footer.css" />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+/>
+  <script src="navbar.js" defer></script>
+</head>
+<body>
+
+  <section class="gallery-hero">
+    <div class="hero-inner glass">
+      <h1>Gallery</h1>
+      <p>Snapshots of our machinery, factory floor, and installations.</p>
+    </div>
+    <div class="bubbles">
+      <span class="bubble b1"></span>
+      <span class="bubble b2"></span>
+    </div>
+  </section>
+
+  <section class="gallery-grid">
+    <div class="wrap">
+      <div class="grid">
+        <div class="cell"><img src="images/a4-copier-making-machine (1).jpeg.jpg" alt="A4 Copier Making Machine" /></div>
+        <div class="cell"><img src="images/a4-copier-making-machine.jpeg.jpg" alt="A4 Copier Making Machine" /></div>
+        <div class="cell"><img src="images/a4-paper-printing-sheet-machine (1).jpg" alt="A4 Paper Printing Sheet Machine" /></div>
+        <div class="cell"><img src="images/a4-paper-printing-sheet-machine.jpg" alt="A4 Paper Printing Sheet Machine" /></div>
+        <div class="cell"><img src="images/atm-1.jpeg.jpg" alt="ATM Roll Production" /></div>
+        <div class="cell"><img src="images/flexo-4.jpeg.jpg" alt="Flexo Printing" /></div>
+        <div class="cell"><img src="images/flexo-label-printing-machine (1).jpg" alt="Flexo Label Printing Machine" /></div>
+        <div class="cell"><img src="images/flexo-label-printing-machine.jpg" alt="Flexo Label Printing Machine" /></div>
+        <div class="cell"><img src="images/lable-making-machine.jpeg.jpg" alt="Label Making Machine" /></div>
+        <div class="cell"><img src="images/paper-cutting-machine.jpeg.jpg" alt="Paper Cutting Machine" /></div>
+        <div class="cell"><img src="images/product-jpeg (1).jpg" alt="Product Image 1" /></div>
+        <div class="cell"><img src="images/product-jpeg (2).jpg" alt="Product Image 2" /></div>
+        <div class="cell"><img src="images/product-jpeg.jpg" alt="Product Image" /></div>
+        <div class="cell"><img src="images/product.jpg" alt="Product" /></div>
+        <div class="cell"><img src="images/rotary-die-cutting-machine.jpg" alt="Rotary Die Cutting Machine" /></div>
+        <div class="cell"><img src="images/semi-automatic-a4-copier-making-machine.jpg" alt="Semi-automatic A4 Copier Making Machine" /></div>
+        <div class="cell"><img src="images/slater-.jpeg.jpg" alt="Slitter Machine" /></div>
+        <div class="cell"><img src="images/speed-blank-label-machine.jpg" alt="Speed Blank Label Machine" /></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox">
+    <div class="content">
+      <button class="close" id="lb-close">Close</button>
+      <img id="lb-img" src="" alt="Preview" />
+    </div>
+  </div>
+
+  <section id="floating-buttons" style="
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/7720060073" target="_blank"
+     style="
+      background:#25D366;
+      width:55px;
+      height:55px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 12px rgba(0,0,0,.3);
+      color:white;
+      font-size:26px;
+     "
+     title="Chat on WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  
+
+</section>
+
+  <script>
+    const gridImgs = document.querySelectorAll('.grid img');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbClose = document.getElementById('lb-close');
+    gridImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        lbImg.src = img.src;
+        lb.classList.add('open');
+      });
+    });
+    function closeLb(){ lb.classList.remove('open'); lbImg.src=''; }
+    lbClose.addEventListener('click', closeLb);
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+
+    // Back to Top button
+    const backToTop = document.getElementById("backToTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = "flex";
+      } else {
+        backToTop.style.display = "none";
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+  </script>
+</body>
+</html>
