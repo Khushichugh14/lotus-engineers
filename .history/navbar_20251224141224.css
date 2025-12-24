@@ -221,3 +221,20 @@
     display: none;
   }
 }
+.nav-links a {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  padding: 14px 16px;        /* ⬅ smaller height */
+  border-radius: 16px;       /* ⬅ tighter curve */
+
+  font-size: 15px;           /* ⬅ smaller text */
+  font-weight: 500;
+  color: #2b2b2b;
+  text-decoration: none;
+
+  background: #ffffff;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.07); /* ⬅ lighter shadow */
+  transition: all 0.25s ease;
+}
