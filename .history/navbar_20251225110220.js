@@ -32,17 +32,27 @@ document.addEventListener("DOMContentLoaded", () => {
       backdrop.addEventListener("click", closeMenu);
 
       /* ================= ACTIVE LINK (SAME FOR ALL PAGES) ================= */
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
       navItems.forEach(link => {
-  link.addEventListener("click", () => {
-    navItems.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
+        const href = link.getAttribute("href");
 
-    navLinks.classList.remove("active");
-    document.querySelector(".mobile-backdrop")?.classList.remove("active");
-  });
-});
+        // reset
+        link.classList.remove("active");
+
+        // highlight current page
+        if (href === currentPage) {
+          link.classList.add("active");
+        }
+
+        // close menu on click
+        link.addEventListener("click", () => {
+          navItems.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+          closeMenu();
+        });
+      });
 
       /* ================= PRODUCT SEARCH ================= */
       const searchInput = document.getElementById("productSearch");

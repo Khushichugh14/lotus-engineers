@@ -14,35 +14,43 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.appendChild(backdrop);
 
       /* ================= MENU TOGGLE ================= */
-      menuToggle?.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        backdrop.classList.toggle("active");
+     menuToggle?.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  backdrop.classList.toggle("active");
 
-        // 🔒 prevent background scroll
-        document.body.classList.toggle("menu-open");
-      });
+  // 🔒 prevent background scroll
+  document.body.classList.toggle("menu-open");
+});
 
       const closeMenu = () => {
         navLinks.classList.remove("active");
         backdrop.classList.remove("active");
-        document.body.classList.remove("menu-open");
       };
-
 
       backdrop.addEventListener("click", closeMenu);
 
       /* ================= ACTIVE LINK (SAME FOR ALL PAGES) ================= */
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
 
       navItems.forEach(link => {
-  link.addEventListener("click", () => {
-    navItems.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
+        const href = link.getAttribute("href");
 
-    navLinks.classList.remove("active");
-    document.querySelector(".mobile-backdrop")?.classList.remove("active");
-  });
-});
+        // reset
+        link.classList.remove("active");
+
+        // highlight current page
+        if (href === currentPage) {
+          link.classList.add("active");
+        }
+
+        // close menu on click
+        link.addEventListener("click", () => {
+          navItems.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+          closeMenu();
+        });
+      });
 
       /* ================= PRODUCT SEARCH ================= */
       const searchInput = document.getElementById("productSearch");

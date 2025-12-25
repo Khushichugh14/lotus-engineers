@@ -451,8 +451,8 @@
   /* ACTIVE PAGE HIGHLIGHT */
   .nav-links a.active {
     background: #fde8f1;
-  color: #e10980;
-  font-weight: 600;
+    color: #e10980;
+    font-weight: 600;
   }
 
   .nav-links a:hover {

@@ -326,26 +326,91 @@
 
   .menu-toggle {
     display: block;
-    font-size: 26px;
-    color: #e10980;
-    cursor: pointer;
-    z-index: 10001;
   }
 
   .search-box {
     display: none;
   }
 
-  /* =====
-
-  /* container */
+  @media (max-width: 1024px) {
   .nav-links {
-     position: fixed;
-    top: 90px;                 /* SAME on all pages */
+    position: fixed;
+
+    /* 🔒 FIXED POSITION RELATIVE TO NAVBAR */
+    top: 120px;          /* height of top bar + navbar */
     right: 16px;
 
+    width: 90%;
+    max-width: 340px;
+
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+
+    z-index: 1001;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 18px;
+    background: #ffffff;
+    border-radius: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2b2b2b;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-links a.active {
+    background: #fde8f1;
+    color: #e10980;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+  
+}
+@media (max-width: 1024px) {
+  .nav-container {
+    position: relative;
+  }
+
+  .nav-links {
+    top: 70px; /* tighter spacing under navbar */
+  }
+}
+
+
+/* Prevent page jump when menu opens */
+body.menu-open {
+  overflow: hidden;
+  height: 100vh;
+}
+/* ================= MOBILE MENU (FINAL FIX) ================= */
+/* ================= FIXED MENU HOLDER ================= */
+@media (max-width: 1024px) {
+
+  .nav-wrapper {
+    position: fixed;
+    top: 120px;              /* ALWAYS SAME POSITION */
+    left: 50%;
+    transform: translateX(-50%);
     width: 92%;
     max-width: 340px;
+
+    z-index: 99999;
+    pointer-events: none;   /* allow clicks only when open */
+  }
+
+  .nav-links {
+    pointer-events: auto;
 
     display: none;
     flex-direction: column;
@@ -354,17 +419,15 @@
     padding: 18px;
     border-radius: 22px;
 
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 25px 45px rgba(0,0,0,0.25);
-
-    z-index: 9999;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.18);
   }
 
   .nav-links.active {
     display: flex;
   }
 
-  /* menu items */
+  /* MENU ITEMS */
   .nav-links a {
     width: 100%;
     padding: 16px 18px;
@@ -380,86 +443,36 @@
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     transition: 0.25s ease;
   }
+
   .nav-links a:hover {
-    background: #f6f6f6;
+    background: #f5f5f5;
   }
 
-  /* active item */
   .nav-links a.active {
     background: #fde8f1;
     color: #e10980;
     font-weight: 600;
   }
 
-  /* hover */
-  
-
-  /* disable desktop underline */
   .nav-links a::after {
     display: none !important;
   }
 }
-/* ===========================
-   FINAL MOBILE MENU FIX
-=========================== */
-@media (max-width: 1024px) {
 
-  .menu-toggle {
-    display: block;
-    z-index: 100001;
-  }
+/* ===== FORCE MOBILE MENU ABOVE ALL CONTENT ===== */
+.nav-links {
+  z-index: 99999 !important;
+  position: fixed !important;
+}
 
-  .nav-links {
-    position: fixed;
-    top: 110px;              /* SAME ON ALL PAGES */
-    right: 16px;
 
-    width: 92%;
-    max-width: 340px;
-
-    display: none;
-    flex-direction: column;
-    gap: 14px;
-
-    padding: 18px;
-    border-radius: 22px;
-
-    background: rgba(255, 255, 255, 0.97);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
-
-    z-index: 99999;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links a {
-    width: 100%;
-    padding: 16px 18px;
-    border-radius: 16px;
-
-    background: #ffffff;
-    color: #2b2b2b;
-    font-size: 16px;
-    font-weight: 500;
-
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-    transition: 0.25s ease;
-  }
-
-  /* ACTIVE PAGE HIGHLIGHT */
-  .nav-links a.active {
-    background: #fde8f1;
-  color: #e10980;
-  font-weight: 600;
-  }
-
-  .nav-links a:hover {
-    background: #f5f5f5;
-  }
-
-  .nav-links a::after {
-    display: none !important;
-  }
+section,
+.hero,
+.about,
+.products,
+.testimonials,
+img,
+video {
+  position: relative;
+  z-index: 1;
 }

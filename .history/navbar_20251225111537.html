@@ -46,26 +46,5 @@
       <div class="menu-toggle" id="menu-toggle">&#9776;</div>
     </div>
   </div>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const links = document.querySelectorAll(".nav-links a");
-
-  // Get current file name (home = index.html)
-  let currentPage = window.location.pathname.split("/").pop();
-  if (currentPage === "") currentPage = "index.html";
-
-  links.forEach(link => {
-    const linkPage = link.getAttribute("href");
-
-    if (linkPage === currentPage) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
-    }
-  });
-});
-</script>
-
-
 
 </header>

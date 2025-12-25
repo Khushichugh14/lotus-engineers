@@ -32,16 +32,16 @@ document.addEventListener("DOMContentLoaded", () => {
       backdrop.addEventListener("click", closeMenu);
 
       /* ================= ACTIVE LINK (SAME FOR ALL PAGES) ================= */
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+     const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-      navItems.forEach(link => {
-  link.addEventListener("click", () => {
-    navItems.forEach(l => l.classList.remove("active"));
+navItems.forEach(link => {
+  const href = link.getAttribute("href");
+
+  link.classList.remove("active");
+
+  if (href === currentPage) {
     link.classList.add("active");
-
-    navLinks.classList.remove("active");
-    document.querySelector(".mobile-backdrop")?.classList.remove("active");
-  });
+  }
 });
 
       /* ================= PRODUCT SEARCH ================= */

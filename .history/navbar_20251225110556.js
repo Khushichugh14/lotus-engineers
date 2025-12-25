@@ -35,14 +35,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
       navItems.forEach(link => {
-  link.addEventListener("click", () => {
-    navItems.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
+        const href = link.getAttribute("href");
 
-    navLinks.classList.remove("active");
-    document.querySelector(".mobile-backdrop")?.classList.remove("active");
-  });
-});
+        link.classList.remove("active");
+
+        if (href === currentPage) {
+          link.classList.add("active");
+        }
+      });
 
       /* ================= PRODUCT SEARCH ================= */
       const searchInput = document.getElementById("productSearch");

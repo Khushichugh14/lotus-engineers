@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   fetch("navbar.html")
     .then(res => res.text())
     .then(data => {
@@ -13,36 +14,41 @@ document.addEventListener("DOMContentLoaded", () => {
       backdrop.className = "mobile-backdrop";
       document.body.appendChild(backdrop);
 
-      /* ================= MENU TOGGLE ================= */
+      /* ================= TOGGLE MENU ================= */
       menuToggle?.addEventListener("click", () => {
         navLinks.classList.toggle("active");
         backdrop.classList.toggle("active");
-
-        // 🔒 prevent background scroll
-        document.body.classList.toggle("menu-open");
       });
 
       const closeMenu = () => {
         navLinks.classList.remove("active");
         backdrop.classList.remove("active");
-        document.body.classList.remove("menu-open");
       };
-
 
       backdrop.addEventListener("click", closeMenu);
 
-      /* ================= ACTIVE LINK (SAME FOR ALL PAGES) ================= */
-      const currentPage = window.location.pathname.split("/").pop() || "index.html";
+      /* ================= ACTIVE LINK HANDLING ================= */
+    const navItems = document.querySelectorAll("#nav-links a");
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
-      navItems.forEach(link => {
+navItems.forEach(link => {
+  const href = link.getAttribute("href");
+
+  link.classList.remove("active");
+
+  if (href === currentPage) {
+    link.classList.add("active");
+  }
+
   link.addEventListener("click", () => {
     navItems.forEach(l => l.classList.remove("active"));
     link.classList.add("active");
 
-    navLinks.classList.remove("active");
+    document.getElementById("nav-links")?.classList.remove("active");
     document.querySelector(".mobile-backdrop")?.classList.remove("active");
   });
 });
+
 
       /* ================= PRODUCT SEARCH ================= */
       const searchInput = document.getElementById("productSearch");
